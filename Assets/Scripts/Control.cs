@@ -14,6 +14,8 @@ public class Control : MonoBehaviour
 
     private LineRenderer lineRenderer;
 
+    public int numVertices = 4;
+
     private void Init(int numPoints)
     {
         Vector3 nowVector = Vector3.zero;
@@ -69,7 +71,7 @@ public class Control : MonoBehaviour
     void Start()
     {
         targetObject = GameObject.FindGameObjectWithTag("target");
-        Init(4);
+        Init(numVertices);
         lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = Color.black;
