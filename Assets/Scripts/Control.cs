@@ -10,7 +10,7 @@ public class Control : MonoBehaviour
 
     private Vector3 formerPos = Vector3.zero;
 
-    public const int updateSteps = 100;
+    public const int updateSteps = 1000;
 
     private LineRenderer lineRenderer;
 
@@ -28,61 +28,6 @@ public class Control : MonoBehaviour
                 gameObject.transform.localPosition = localVector;
             }
         }
-    }
-
-    private (float, float, float) ComputeGlobalAngle(Vector3 direction)
-    {
-        float xangle, yangle, zangle;
-
-        if (direction.y != 0)
-        {
-            xangle = Mathf.Atan(direction.z / direction.y);
-        }
-        else
-        {
-            if (direction.z > 0)
-            {
-                xangle = Mathf.PI / 2;
-            }
-            else
-            {
-                xangle = -Mathf.PI / 2;
-            }
-        }
-
-        if (direction.z != 0)
-        {
-            yangle = Mathf.Atan(direction.x / direction.z);
-        }
-        else
-        {
-            if (direction.x > 0)
-            {
-                yangle = Mathf.PI / 2;
-            }
-            else
-            {
-                yangle = -Mathf.PI / 2;
-            }
-        }
-
-        if (direction.x != 0)
-        {
-            zangle = Mathf.Atan(direction.y / direction.x);
-        }
-        else
-        {
-            if (direction.y > 0)
-            {
-                zangle = Mathf.PI / 2;
-            }
-            else
-            {
-                zangle = -Mathf.PI / 2;
-            }
-        }
-
-        return (xangle, yangle, zangle);
     }
 
     private void UpdateIKStep()
